@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<title>Animasi Pedagang Sukses</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        text-align: center;
+        background: #f0f8ff;
+        overflow: hidden;
+    }
+
+    .scene {
+        display: none;
+        font-size: 24px;
+        margin-top: 100px;
+        animation: fade 1s ease-in-out;
+    }
+
+    .active {
+        display: block;
+    }
+
+    @keyframes fade {
+        from {opacity: 0;}
+        to {opacity: 1;}
+    }
+
+    .man {
+        font-size: 60px;
+    }
+
+    .clothes {
+        font-size: 40px;
+        animation: bounce 1s infinite alternate;
+    }
+
+    @keyframes bounce {
+        from {transform: translateY(0);}
+        to {transform: translateY(-20px);}
+    }
+
+    .car {
+        font-size: 80px;
+        animation: drive 3s linear infinite;
+    }
+
+    @keyframes drive {
+        from {transform: translateX(-200px);}
+        to {transform: translateX(200px);}
+    }
+</style>
+</head>
+<body>
+
+<div id="scene1" class="scene active">
+    <div class="man">👨‍💼</div>
+    <p>Seorang pria sedang berdagang baju 👕</p>
+</div>
+
+<div id="scene2" class="scene">
+    <div class="clothes">👕👕👕</div>
+    <p>Bajunya laris manisssss!!! 🔥💸</p>
+</div>
+
+<div id="scene3" class="scene">
+    <div class="man">😄🎉</div>
+    <p>Dia sangat bahagia!</p>
+</div>
+
+<div id="scene4" class="scene">
+    <p>1 Bulan Kemudian... ⏳</p>
+</div>
+
+<div id="scene5" class="scene">
+    <div class="car">🚗</div>
+    <p>Dia berhasil membeli mobil baru! 🎉</p>
+</div>
+
+<script>
+    const scenes = document.querySelectorAll('.scene');
+    let index = 0;  
+
+    function nextScene() {
+        scenes[index].classList.remove('active');
+        index++;
+        if (index < scenes.length) {
+            scenes[index].classList.add('active');
+            setTimeout(nextScene, 3000);
+        }
+    }
+
+    setTimeout(nextScene, 3000);
+</script>
+
+</body>
+</html>
